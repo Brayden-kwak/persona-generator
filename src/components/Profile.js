@@ -3,14 +3,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ImageUploading from 'react-images-uploading';
 import {addName, addAge, addJob, addImage} from '../store';
-import PropTypes from 'prop-types';
 
 function Profile({persona, addName, addAge, addJob, addImage}) {
 
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [job, setJob] = useState("");
-    
     const [images, setImages] = useState([]);
 
     const handleSubmit = (e) => {
@@ -41,6 +39,11 @@ function Profile({persona, addName, addAge, addJob, addImage}) {
   return (
       <>
         <div className="container">
+        <div className='progressBar'>
+            <div 
+                style={{width: <Profile /> ? "66.6%" : ""}}
+            />
+        </div>
             <div className="second-container">
                 <div className="input-container">
                     <form onSubmit={handleSubmit}>

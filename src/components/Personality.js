@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import {addName, addAge, addJob, addImage} from '../store';
 
-function Personality({personaData, addName, addAge, addJob, addImage}) {
+import TitleIndustry from './TitleIndustry';
+import Profile from './Profile';
+
+function Personality({persona, addName, addAge, addJob, addImage}) {
 
     // const params = useParams();
     // const profile = personaData.find(data => data.id === parseInt(params.id));
@@ -11,7 +14,12 @@ function Personality({personaData, addName, addAge, addJob, addImage}) {
   return (
       <>
         <h1>Personality</h1>
-        {personaData?.map((item) => (
+        <div className='progressBar'>
+            <div 
+                style={{width: <Personality /> ? "100%" : ""}}
+            />
+        </div>
+        {persona?.map((item) => (
             <>
                 <h1 key={item?.id}>{item.name}</h1>
                 <h1 key={item?.id}>{item.age}</h1>
@@ -20,13 +28,13 @@ function Personality({personaData, addName, addAge, addJob, addImage}) {
             </>
         ))}
         
-        <Link to="/titleIndustry">Next</Link>
+        <Link to="/">Next</Link>
       </>
   );
 }
 
 const mapStateToProps = (state) => {
-    return { personaData: state }
+    return { persona: state }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

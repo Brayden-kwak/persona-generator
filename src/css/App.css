@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,18 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.progressBar{
+  width: 90%;
+  height: 10px;
+  background-color: white;
+  margin-bottom: 50px;
+  border-radius: 5px;
+}
+
+.progressBar div{
+  width: 33.3%;
+  height: 100%;
+  background-color: rgb(255, 0, 174);
 }
