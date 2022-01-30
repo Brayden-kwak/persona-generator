@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import ImageUploading from 'react-images-uploading';
 import {addName, addAge, addJob, addImage} from '../store';
 
+import '../css/Profile.css';
+
 function Profile({persona, addName, addAge, addJob, addImage}) {
 
     const [name, setName] = useState("");
@@ -39,63 +41,74 @@ function Profile({persona, addName, addAge, addJob, addImage}) {
   return (
       <>
         <div className="container">
-        <div className='progressBar'>
-            <div 
-                style={{width: <Profile /> ? "66.6%" : ""}}
-            />
-        </div>
-            <div className="second-container">
-                <div className="input-container">
-                    <form onSubmit={handleSubmit}>
+            <div className='progressBar'>
+                <div 
+                    style={{width: <Profile /> ? "66.6%" : ""}}
+                />
+            </div>
+                <div className="second-container">
+                    <form className="input-containers" onSubmit={handleSubmit}>
+                        <div className="img-containers">
                         {images && (
-                            <img 
-                                src={images}
-                                alt="img"
-                                style={{width:"150px", height:"150px"}}
-                            />
+                            <label className="img-preview-box">
+                                <img 
+                                    src={images}
+                                    alt=""
+                                    className="img-preview"
+                                />
+                            </label>
                         )}
-                        <div>
-                            <input 
-                                name="images"
-                                type="file" 
-                                onChange={onChange}
-                            />
+                            <label className="custom-file-upload"> Upload image                   
+                                <input 
+                                    type="file"
+                                    name="images"
+                                    className="img-btnBox" 
+                                    onChange={onChange}
+                                />
+                            </label>
                         </div>
                         <div className="inputBox">
+                            <label> Name
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e)=>setName(e.target.value)}
+                                /></label>
+                            <label> Age
                             <input
                                 type="text"
-                                placeholder="Name"
-                                value={name}
-                                onChange={(e)=>setName(e.target.value)}
-                            />
-                            <input
-                                type="text"
-                                placeholder="Age"
                                 value={age}
                                 onChange={(e)=>setAge(e.target.value)}
-                            />
+                            /></label>
+                            <label> Job
                             <input
                                 type="text"
-                                placeholder="Job"
                                 value={job}
                                 onChange={(e)=>setJob(e.target.value)}
-                            />
+                            /></label> 
                         </div>
-                        <button>
-                            <Link to="/personality">next</Link>
-                        </button>
-                        
+                        <div className="btn-container">
+                            <Link to="/" className="link">
+                                <button className="previous">
+                                    Previous
+                                </button>
+                            </Link>
+                            <Link to="/profile" className="link">
+                                <button className="next">
+                                    Next    
+                                </button>
+                            </Link>
+                        </div>    
                     </form>
-                    {persona?.map((item) => (
+                    {/* {persona?.map((item) => (
                         <>
                             <h1 key={item?.id}>{item.name}</h1>
                             <h1 key={item?.id}>{item.age}</h1>
                             <h1 key={item?.id}>{item.job}</h1>
                             <img src={item?.images} alt="" key={item?.id}/>
                         </>
-                    ))}
+                    ))} */}
                 </div>
-            </div>
         </div>
       </>
   );

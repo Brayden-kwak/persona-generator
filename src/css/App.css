@@ -38,15 +38,16 @@
 } */
 
 .progressBar{
-  width: 90%;
-  height: 10px;
+  width: 85%;
+  height: 20px;
   background-color: white;
   margin-bottom: 50px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .progressBar div{
   width: 33.3%;
   height: 100%;
   background-color: rgb(255, 0, 174);
+  border-radius: 10px 0 0 10px;
 }

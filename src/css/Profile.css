@@ -1,0 +1,130 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.second-container{
+    height: 80%;
+    width: 90%;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+}
+
+.img-containers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-preview-box{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    border: 2px dashed rgb(225, 225, 225);
+}
+
+img[alt=""]{
+    height: 100%;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    background-color:rgb(255, 104, 104);
+    color: white;
+    text-align: center;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 90%;
+    border-radius: 5px;
+}
+.custom-file-upload:hover{
+    background-color:rgb(255, 137, 137);
+}
+
+.input-containers{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputBox{
+    width: 100%;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 15px;
+    align-items:center;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputBox input {
+    margin-bottom: 15px;
+}
+
+input:focus{
+    border: blue;
+}
+
+.btn-container{
+    height: 30px;
+    width: 90%;
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 28px;
+}
+
+button{
+    height: 50px;
+    width: 50%;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    border: 0 none;
+    cursor: pointer;
+    padding: 5px 5px;
+}
+
+.previous{
+    background-color: rgb(201, 201, 201);
+    width: 100%;
+    border-radius: 0 0 0 8px;
+}
+.next{
+    background-color: rgb(255, 51, 180); 
+    width: 100%;
+    border-radius: 0 0 8px 0;
+}
+button:hover{
+    background-color: rgb(235, 51, 189);
+}
+.link{
+    height: 30px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}

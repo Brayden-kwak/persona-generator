@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { addTitle, addIndustry } from '../store';
 import { connect } from 'react-redux';
-import Profile from './Profile';
-import Personality from './Personality';
 
 import '../css/TitleIndustry.css';
 
@@ -20,7 +18,7 @@ function TitleIndustry({persona, addTitle, addIndustry}) {
 
   return (
       <div className="titleIndustry-container">
-        <h1>Persona title & Select industry</h1>
+        {/* <h1>Persona title & Select industry</h1> */}
         <div className='progressBar'>
             <div 
                 style={{width: <TitleIndustry /> ? "33.3%" : ""}}
