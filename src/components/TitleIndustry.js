@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import '../css/TitleIndustry.css';
 
-function TitleIndustry({persona, addTitle, addIndustry}) {
+function TitleIndustry({persona}) {
 
     const [title, setTitle] = useState("");
     const [industry, setIndustry] = useState("");

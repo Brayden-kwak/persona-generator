@@ -1279,6 +1279,11 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
+"@mobiscroll/react-lite@^4.10.9":
+  version "4.10.9"
+  resolved "https://registry.yarnpkg.com/@mobiscroll/react-lite/-/react-lite-4.10.9.tgz#f4c14e0038a7b7729f3e76f92dce8d7492f32171"
+  integrity sha512-43LkjuorLZD6Xnm5YflOIYbJNeCKJU57Vt/Qhab3QcoHLqOjHaCjKU6qg6UFWxq8S4eyg5cJJL8l/gdLX8mKTQ==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"

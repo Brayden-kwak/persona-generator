@@ -13,6 +13,9 @@ const persona = createSlice({
         addJob: (state, action) => {
             state.push({ job: action.payload, id: Date.now() });
         },
+        addSex: (state, action) => {
+            state.push({ sex: action.payload, id: Date.now() });
+        },
         addImage: (state, action) => {
             state.push({ images: action.payload, id: Date.now() });
         },
@@ -25,5 +28,5 @@ const persona = createSlice({
     }
 });
 
-export const {addName, addAge, addJob, addImage, addTitle, addIndustry} = persona.actions;
+export const {addName, addAge, addJob, addSex, addImage, addTitle, addIndustry} = persona.actions;
 export default configureStore({reducer: persona.reducer});

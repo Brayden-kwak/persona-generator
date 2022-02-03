@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ImageUploading from 'react-images-uploading';
-import {addName, addAge, addJob, addImage} from '../store';
+import {addName, addAge, addJob, addImage, addSex} from '../store';
 
 import '../css/Profile.css';
 
-function Profile({persona, addName, addAge, addJob, addImage}) {
+function Profile({persona}) {
 
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [job, setJob] = useState("");
+    const [sex, setSex] = useState("");
     const [images, setImages] = useState([]);
 
     const handleSubmit = (e) => {
@@ -19,9 +20,11 @@ function Profile({persona, addName, addAge, addJob, addImage}) {
         addAge(age);
         addJob(job);
         addImage(images);
+        addSex(sex);
         setName("");
         setAge("");
         setJob("");
+        setSex("");
     }
 
     const onChange = (event) => {
@@ -86,6 +89,12 @@ function Profile({persona, addName, addAge, addJob, addImage}) {
                                 value={job}
                                 onChange={(e)=>setJob(e.target.value)}
                             /></label> 
+                            <label> Sex
+                            <input
+                                type="text"
+                                value={sex}
+                                onChange={(e)=>setSex(e.target.value)}
+                            /></label> 
                         </div>
                         <div className="btn-container">
                             <Link to="/" className="link">
@@ -93,21 +102,21 @@ function Profile({persona, addName, addAge, addJob, addImage}) {
                                     Previous
                                 </button>
                             </Link>
-                            <Link to="/profile" className="link">
+                            <Link to="/personality" className="link">
                                 <button className="next">
                                     Next    
                                 </button>
                             </Link>
                         </div>    
                     </form>
-                    {/* {persona?.map((item) => (
+                    {persona?.map((item) => (
                         <>
                             <h1 key={item?.id}>{item.name}</h1>
                             <h1 key={item?.id}>{item.age}</h1>
                             <h1 key={item?.id}>{item.job}</h1>
                             <img src={item?.images} alt="" key={item?.id}/>
                         </>
-                    ))} */}
+                    ))}
                 </div>
         </div>
       </>
@@ -123,6 +132,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         addName: text => dispatch(addName(text)),
         addAge: text => dispatch(addAge(text)),
         addJob: text => dispatch(addJob(text)),
+        addSex: text => dispatch(addSex(text)),
         addImage: text => dispatch(addImage(text))
     }
 }

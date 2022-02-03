@@ -1,0 +1,110 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.second-container{
+    height: 80%;
+    width: 90%;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+}
+
+.form-containers{
+    display: flex;
+    flex-direction:column;
+    width: 80%;
+    align-items: center;
+}
+
+textarea{
+    height: 5vh;
+    width: 82%;
+    resize: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.range-field{
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    width: 80%;
+    box-shadow: 6px 6px 10px 2px rgba(0,0,0,0.35);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 40px;
+}
+
+input[type="range"]{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 0.1em;
+    outline: none !important;
+    background-color: rgb(237, 237, 237);
+    border:none;
+    border-radius:50px;
+  }
+  input[type="range"]::-moz-focus-outer {
+      border: 0;
+  }
+  input[type="range"]:hover {
+    outline:none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.4em;
+    height: 2em;
+    background: #f56bfc;
+    cursor: pointer;
+    border-radius:50px;
+    outline:none;
+  }
+
+.scroll{
+    margin:6px 20px;
+    padding: 12px 0;
+}
+
+/* .scroll-label{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.mbsc-form-group{
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.mbsc-comp .mbsc-control{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.slider{
+    margin-left: 20px;
+    margin-top: 6px;
+} */
