@@ -6,7 +6,7 @@ import {addName, addAge, addJob, addImage, addSex} from '../store';
 
 import '../css/Profile.css';
 
-function Profile({persona}) {
+function Profile({persona, addName, addAge, addJob, addImage, addSex}) {
 
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
@@ -46,7 +46,7 @@ function Profile({persona}) {
         <div className="container">
             <div className='progressBar'>
                 <div 
-                    style={{width: <Profile /> ? "66.6%" : ""}}
+                    style={{width: <Profile /> ? "33.3%" : ""}}
                 />
             </div>
                 <div className="second-container">
@@ -102,21 +102,18 @@ function Profile({persona}) {
                                     Previous
                                 </button>
                             </Link>
-                            <Link to="/personality" className="link">
+                            
                                 <button className="next">
-                                    Next    
+                                    save    
                                 </button>
+                          
+                            <Link to="/personality" className="link">
+                                
+                                    Next    
+                                
                             </Link>
                         </div>    
                     </form>
-                    {persona?.map((item) => (
-                        <>
-                            <h1 key={item?.id}>{item.name}</h1>
-                            <h1 key={item?.id}>{item.age}</h1>
-                            <h1 key={item?.id}>{item.job}</h1>
-                            <img src={item?.images} alt="" key={item?.id}/>
-                        </>
-                    ))}
                 </div>
         </div>
       </>
@@ -129,11 +126,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        addName: text => dispatch(addName(text)),
-        addAge: text => dispatch(addAge(text)),
-        addJob: text => dispatch(addJob(text)),
-        addSex: text => dispatch(addSex(text)),
-        addImage: text => dispatch(addImage(text))
+        addName: name => dispatch(addName(name)),
+        addAge: age => dispatch(addAge(age)),
+        addJob: job => dispatch(addJob(job)),
+        addImage: image => dispatch(addImage(image)),
+        addSex: sex => dispatch(addSex(sex))
     }
 }
 

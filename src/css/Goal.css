@@ -1,0 +1,15 @@
+.second-container-goal{
+    height: 80%;
+    width: 90%;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.goalInput{
+    font-size: 15px;
+}

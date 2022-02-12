@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import TitleIndustry from './components/TitleIndustry';
 import Profile from './components/Profile';
 import Personality from './components/Personality';
+import Goal from './components/Goal';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" exact element={<TitleIndustry/>}/>
         <Route path="/profile" exact element={<Profile/>}/>
         <Route path="/personality" exact element={<Personality/>}/>
+        <Route path="/goal" exact element={<Goal/>}/>
       </Routes>
     </>
   );

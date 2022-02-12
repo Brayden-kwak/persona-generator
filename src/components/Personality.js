@@ -1,33 +1,41 @@
-import React, {useState} from 'react';
-import { connect } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
-import {addName, addAge, addJob, addImage, addSex} from '../store';
-import mobiscroll from '@mobiscroll/react-lite';
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import {
+  addPersonalityTitle,
+  addPersonality1,
+  addPersonality2,
+  addPersonality3,
+  addPersonality4
+} from "../store";
+import mobiscroll from "@mobiscroll/react-lite";
 
-import '../css/Personality.css';
+import "../css/Personality.css";
 
-function Personality({persona, addName, addAge, addJob, addImage, addSex}) {
+function Personality({
+  persona,
+  addPersonalityTitle,
+  addPersonality1,
+  addPersonality2,
+  addPersonality3,
+  addPersonality4
+}) {
+  // const params = useParams();
+  // const profile = persona.find(data => data.id === parseInt(params.id));
 
-    // const params = useParams();
-    // const profile = persona.find(data => data.id === parseInt(params.id));
+  function handleSubmit(e) {}
 
-    function handleSubmit(e) {
+  return (
+    <>
+      <div className="container">
+        <div className="progressBar">
+          <div style={{ width: <Personality /> ? "50%" : "" }} />
+        </div>
+        <div className="second-container">
+          <form className="form-containers" onSubmit={handleSubmit}>
+            <textarea placeholder="One sentence user’s personality" />
 
-    }
-
-    return (
-      <>
-        <div className="container">
-            <div className='progressBar'>
-                <div 
-                    style={{width: <Personality /> ? "100%" : ""}}
-                />
-            </div>
-            <div className="second-container">
-                <form className="form-containers" onSubmit={handleSubmit}>
-                    <textarea placeholder="One sentence user’s personality"/>
-
-                    {/* <mobiscroll.Form>
+            {/* <mobiscroll.Form>
                         <mobiscroll.FormGroup>
                             <label className="scroll-label">Introvert
                                 <mobiscroll.Slider className="slider" value={45} color="warning" data-tooltip="false" />
@@ -40,61 +48,66 @@ function Personality({persona, addName, addAge, addJob, addImage, addSex}) {
                             </label>
                         </mobiscroll.FormGroup>
                     </mobiscroll.Form> */}
-                    <div className='range-field'>
-                        <div class="range-name-left">Introvert</div>
-                            <input className="scroll" type="range" min="0" max="200" />
-                        <div class="range-name-right">Extrovert</div>
-                    </div>
-                    <div className='range-field'>
-                        <div class="range-name-left">Thinking</div>
-                            <input className="scroll" type="range" min="0" max="200" />
-                        <div class="range-name-right">Feeling</div>
-                    </div>
-                    <div className='range-field'>
-                        <div class="range-name-left">Sensing</div>
-                            <input className="scroll" type="range" min="0" max="200" />
-                        <div class="range-name-right">Intuition</div>
-                    </div>
-                    <div className='range-field'>
-                        <div class="range-name-left">Judging</div>
-                            <input className="scroll" type="range" min="0" max="200" />
-                        <div class="range-name-right">Perceiving</div>
-                    </div>
-                    <div className="btn-container">
-                            <Link to="/" className="link">
-                                <button className="previous">
-                                    Previous
-                                </button>
-                            </Link>
-                            <Link to="/personality" className="link">
-                                <button className="next">
-                                    Next    
-                                </button>
-                            </Link>
-                        </div> 
-                </form>
+            <div className="range-field">
+              <div className="range-name-left">Introvert</div>
+                <input className="scroll" type="range" min="0" max="200" />
+              <div className="range-name-right">Extrovert</div>
             </div>
-            
-            
+            <div className="range-field">
+              <div className="range-name-left">Thinking</div>
+                <input className="scroll" type="range" min="0" max="200" />
+              <div className="range-name-right">Feeling</div>
+            </div>
+            <div className="range-field">
+              <div className="range-name-left">Sensing</div>
+                <input className="scroll" type="range" min="0" max="200" />
+              <div className="range-name-right">Intuition</div>
+            </div>
+            <div className="range-field">
+              <div className="range-name-left">Judging</div>
+                <input className="scroll" type="range" min="0" max="200" />
+              <div className="range-name-right">Perceiving</div>
+            </div>
+            <div className="btn-container">
+              <Link to="/" className="link">
+                <button className="previous">Previous</button>
+              </Link>
+              <Link to="/goal" className="link">
+                <button className="next">Next</button>
+              </Link>
+            </div>
+          </form>
+          {/* {persona?.map((item) => (
+            <>
+              <h1 key={item?.id}>{item.name}</h1>
+              <h1 key={item?.id}>{item.age}</h1>
+              <h1 key={item?.id}>{item.job}</h1>
+              <h1 key={item?.id}>{item.title}</h1>
+              <h1 key={item?.id}>{item.industry}</h1>
+              <img src={item?.images} alt="" key={item?.id} />
+            </>
+          ))} */}
         </div>
-      </>
+      </div>
+    </>
   );
 }
 
 const mapStateToProps = (state) => {
-    return { persona: state }
-}
+  console.log(state);
+  return { persona: state };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    console.log(dispatch)
-    console.log(ownProps)
-    return {
-        addName: () => dispatch(addName(ownProps)),
-        addAge: () => dispatch(addAge(ownProps)),
-        addJob: () => dispatch(addJob(ownProps)),
-        addImage: () => dispatch(addImage(ownProps)),
-        addSex: () => dispatch(addSex(ownProps))
-    }
-}
+  console.log(ownProps);
+
+  return {
+    addPersonalityTitle: (name) => dispatch(addPersonalityTitle(name)),
+    addPersonality1: (age) => dispatch(addPersonality1(age)),
+    addPersonality2: (job) => dispatch(addPersonality2(job)),
+    addPersonality3: (image) => dispatch(addPersonality3(image)),
+    addPersonality4: (sex) => dispatch(addPersonality4(sex)),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Personality);

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import '../css/TitleIndustry.css';
 
-function TitleIndustry({persona}) {
+function TitleIndustry({persona, addTitle, addIndustry}) {
 
     const [title, setTitle] = useState("");
     const [industry, setIndustry] = useState("");
@@ -21,7 +21,7 @@ function TitleIndustry({persona}) {
         {/* <h1>Persona title & Select industry</h1> */}
         <div className='progressBar'>
             <div 
-                style={{width: <TitleIndustry /> ? "33.3%" : ""}}
+                style={{width: <TitleIndustry /> ? "16.6%" : ""}}
             />
         </div>
             <form className="second-container" onSubmit={handleSubmit}>
@@ -45,10 +45,13 @@ function TitleIndustry({persona}) {
                             Previous
                         </button>
                     </Link>
-                    <Link to="/profile" className="link">
-                        <button className="next">
-                            Next    
-                        </button>
+                    
+                    <button type="submit" className="next">
+                        save    
+                    </button>
+                
+                    <Link to="/profile" className="link">                        
+                        Next    
                     </Link>
                 </div>
             </form> 
