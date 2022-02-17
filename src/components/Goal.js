@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addFrustration, addGoal } from '../store';
+import { Link } from 'react-router-dom';
 import GoalDetail from './GoalDetail';
 import FrustrationDetail from './FrustrationDetail';
 import '../css/Goal.css';
@@ -56,6 +57,14 @@ console.log(persona);
                                     <input className="goalInput" type="text" value={frustration} onChange={(e) => setFrustration(e.target.value)}/>
                                     <button disabled={!frustration}>Add</button>
                                 </form>
+                        </div>
+                        <div className="btn-container">
+                            <Link to="/personality" className="link">
+                                <button className="previous">Previous</button>
+                            </Link>
+                            <Link to="/story" className="link">
+                                <button className="next">Next</button>
+                            </Link>
                         </div>
                     </div>
             </div>

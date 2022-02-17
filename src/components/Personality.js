@@ -69,7 +69,7 @@ function Personality({
               <div className="range-name-right">Perceiving</div>
             </div>
             <div className="btn-container">
-              <Link to="/" className="link">
+              <Link to="/profile" className="link">
                 <button className="previous">Previous</button>
               </Link>
               <Link to="/goal" className="link">
