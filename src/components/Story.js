@@ -60,10 +60,12 @@ function Story() {
         </div>
         <div className="second-container">
           <form className="form-containers" onSubmit={handleSubmit}>
-            <textarea className="text-area" placeholder="One sentence user’s personality" />
-
+            <div className="text-container">
+                <h2>User Story</h2>
+                <textarea className="text-area" placeholder="Write the user story..." />
+            </div>
             <div className="tag-parents">
-                <p>Keywords</p>
+                <h2>Keywords</h2>
                 <div className="tag-container">
                     {tags.map((tag, index) => 
                         <div className="tag">
@@ -78,7 +80,7 @@ function Story() {
                         onKeyDown={onKeyDown}
                         onKeyUp={onKeyUp}
                     />
-                    <button onClick={onClick}>+</button>
+                    <button className="plus" onClick={onClick}>+</button>
                 </div>
             </div>
 

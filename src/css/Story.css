@@ -1,6 +1,17 @@
-.text-area{
-    height: 300px;
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-container{
     width: 70%;
+    
+}
+
+.text-area{
+    height: 200px;
+    width: 100%;
+    font-size: 18px;
+    padding: 20px;
 }
 
 .tag-parents{
@@ -36,13 +47,14 @@
     margin: 7px 0;
 }
 
-.tag-container button{
+.tag-container .plus{
     width: 10%;
     height: 48px;
     color: white;
     background-color: darkorchid;
     border-radius: 6px;
     margin-left: 5px;
+    font-size: 25px;
 }
 
 .tag{
