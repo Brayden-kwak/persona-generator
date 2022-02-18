@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addFrustration, addGoal } from '../store';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import GoalDetail from './GoalDetail';
 import FrustrationDetail from './FrustrationDetail';
 import '../css/Goal.css';
@@ -24,7 +24,17 @@ function Goal({ addGoal, addFrustration, persona }) {
         addFrustration(frustration);
         setFrustration("");
     }
-console.log(persona);
+
+    const navigate = useNavigate();
+
+      const handleClickNext = () => {
+          navigate('/story');
+      }
+  
+      const handleClickPrev = () => {
+          navigate('/personality');
+      }
+
     return (
         <>
             <div className="container">
@@ -59,12 +69,8 @@ console.log(persona);
                                 </form>
                         </div>
                         <div className="btn-container">
-                            <Link to="/personality" className="link">
-                                <button className="previous">Previous</button>
-                            </Link>
-                            <Link to="/story" className="link">
-                                <button className="next">Next</button>
-                            </Link>
+                            <button className="previous" onClick={handleClickPrev}>Previous</button>
+                            <button className="next" onClick={handleClickNext}>Next</button>
                         </div>
                     </div>
             </div>

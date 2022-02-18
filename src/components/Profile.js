@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ImageUploading from 'react-images-uploading';
 import {addName, addAge, addJob, addImage, addSex} from '../store';
 
@@ -41,6 +41,16 @@ function Profile({persona, addName, addAge, addJob, addImage, addSex}) {
         }
       }
     
+      const navigate = useNavigate();
+
+      const handleClickNext = () => {
+          navigate('/personality');
+      }
+  
+      const handleClickPrev = () => {
+          navigate('/');
+      }
+
   return (
       <>
         <div className="container">
@@ -97,21 +107,12 @@ function Profile({persona, addName, addAge, addJob, addImage, addSex}) {
                             /></label> 
                         </div>
                         <div className="btn-container">
-                            <Link to="/" className="link">
-                                <button className="previous">
-                                    Previous
-                                </button>
-                            </Link>
-                            
-                                <button className="next">
-                                    save    
-                                </button>
-                          
-                            <Link to="/personality" className="link">
-                                
-                                    Next    
-                                
-                            </Link>
+                            <button type="submit" className="previous" onClick={handleClickPrev}>
+                                Previous
+                            </button>
+                            <button type="submit" className="next" onClick={handleClickNext}>
+                                Next
+                            </button>
                         </div>    
                     </form>
                 </div>

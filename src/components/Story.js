@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addStory, addKeywords } from '../store';
 import "../css/Story.css";
 
-function Story() {
+function Story({ persona, addStory, addKeywords }) {
 
     const [input, setInput] = useState("");
     const [tags, setTags] = useState([]);
     const [isKeyReleased, setIsKeyReleased] = useState(false);
+    const [story, setStory] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        addStory(story);
+        addKeywords(tags);
     }
 
     const onChange = (e) => {
@@ -52,6 +57,14 @@ function Story() {
         setTags(state => state.filter((tag, i) => i !== index))
     }
 
+    const navigate = useNavigate();
+    const handleClickNext = () => {
+        navigate('/story');
+    }
+    const handleClickPrev = () => {
+        navigate('/goal');
+    }
+
   return (
       <>   
         <div className="container">
@@ -62,7 +75,12 @@ function Story() {
           <form className="form-containers" onSubmit={handleSubmit}>
             <div className="text-container">
                 <h2>User Story</h2>
-                <textarea className="text-area" placeholder="Write the user story..." />
+                <textarea 
+                    value={story} 
+                    onChange={(e) => setStory(e.target.value)}
+                    className="text-area" 
+                    placeholder="Write the user story..." 
+                />
             </div>
             <div className="tag-parents">
                 <h2>Keywords</h2>
@@ -84,13 +102,20 @@ function Story() {
                 </div>
             </div>
 
+            {console.log(persona)}
+            {persona?.map((item) => (
+                <>
+                    <h1 key={item?.id} style={{color: "black"}}>{item.addStory}</h1>
+                    <h1 key={item?.id} style={{color: "black"}}>{item.addKeywords}</h1>
+                </>
+            ))} 
             <div className="btn-container">
-              <Link to="/profile" className="link">
-                <button className="previous">Previous</button>
-              </Link>
-              <Link to="/goal" className="link">
-                <button className="next">Next</button>
-              </Link>
+              <button className="previous" onClick={handleClickPrev}>
+                  Previous
+              </button>
+              <button type="submit" className="next" onClick={handleClickNext}>
+                Next    
+              </button>     
             </div>
           </form>
         </div>
@@ -98,5 +123,15 @@ function Story() {
       </>
   );
 }
+const mapStateToProps = (state) => {
+    return { persona: state }
+}
 
-export default Story;
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        addStory: (story) => dispatch(addStory(story)),
+        addKeywords: (keywords) => dispatch(addKeywords(keywords))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Story);

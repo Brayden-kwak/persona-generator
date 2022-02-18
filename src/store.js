@@ -46,6 +46,12 @@ const persona = createSlice({
     addFrustration: (state, action) => {
         state.push({ addFrustration: action.payload, id: Math.random() });
     },
+    addStory: (state, action) => {
+        state.push({ addStory: action.payload, id: Math.random()});
+    },
+    addKeywords: (state, action) => {
+        state.push({ addKeywords: action.payload, id: Math.random()});
+    },
     remove: (state, action) => 
         state.filter(goal => goal.id !== action.payload)
   },
@@ -66,6 +72,8 @@ export const {
   addPersonalityTitle,
   addGoal,
   addFrustration,
+  addStory,
+  addKeywords,
   remove
 } = persona.actions;
 export default configureStore({ reducer: persona.reducer });

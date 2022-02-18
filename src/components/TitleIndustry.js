@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addTitle, addIndustry } from '../store';
 import { connect } from 'react-redux';
 
@@ -14,6 +14,16 @@ function TitleIndustry({persona, addTitle, addIndustry}) {
         e.preventDefault();
         addTitle(title);
         addIndustry(industry);
+    }
+
+    const navigate = useNavigate();
+
+    const handleClickNext = () => {
+        navigate('/profile');
+    }
+
+    const handleClickPrev = () => {
+        navigate('/');
     }
 
   return (
@@ -39,20 +49,13 @@ function TitleIndustry({persona, addTitle, addIndustry}) {
                         onChange={(e) => setIndustry(e.target.value)}
                     /></label>
                 </div>
-                <div className="btn-container">
-                    <Link to="/" className="link">
-                        <button className="previous">
-                            Previous
-                        </button>
-                    </Link>
-                    
-                    <button type="submit" className="next">
-                        save    
+                <div className="btn-container">  
+                    <button type="submit" className="previous" onClick={handleClickPrev}>
+                        Previous
                     </button>
-                
-                    <Link to="/profile" className="link">                        
+                    <button type="submit" className="next" onClick={handleClickNext}>
                         Next    
-                    </Link>
+                    </button>
                 </div>
             </form> 
        

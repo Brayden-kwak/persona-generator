@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   addPersonalityTitle,
   addPersonality1,
@@ -24,6 +24,16 @@ function Personality({
   // const profile = persona.find(data => data.id === parseInt(params.id));
 
   function handleSubmit(e) {}
+
+  const navigate = useNavigate();
+
+    const handleClickNext = () => {
+        navigate('/goal');
+    }
+
+    const handleClickPrev = () => {
+        navigate('/profile');
+    }
 
   return (
     <>
@@ -69,12 +79,12 @@ function Personality({
               <div className="range-name-right">Perceiving</div>
             </div>
             <div className="btn-container">
-              <Link to="/profile" className="link">
-                <button className="previous">Previous</button>
-              </Link>
-              <Link to="/goal" className="link">
-                <button className="next">Next</button>
-              </Link>
+                <button type="submit" className="previous" onClick={handleClickPrev}>
+                    Previous
+                </button>
+                <button type="submit" className="next" onClick={handleClickNext}>
+                    Next
+                </button>
             </div>
           </form>
           {/* {persona?.map((item) => (
